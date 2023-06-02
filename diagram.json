@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Adrian Perez",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 5.33,
+      "left": 129.33,
+      "attrs": { "env": "micropython-20230426-v1.20.0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -0.46,
+      "left": -62.93,
+      "attrs": { "color": "green", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 109.95,
+      "left": 257.68,
+      "attrs": { "color": "red", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 75.55,
+      "left": -28.27,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 81.33,
+      "left": -91.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": 70.98,
+      "left": 328.61,
+      "attrs": { "pixels": "16" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -71.98,
+      "left": 318.79,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "btn1:1.r", "pico:GP0", "green", [ "v0" ] ],
+    [ "btn1:2.r", "pico:GND.1", "green", [ "h17.95", "v-13.98" ] ],
+    [ "pico:GP2", "r1:2", "green", [ "h0" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "led1:C", "pico:GND.2", "green", [ "v14.9", "h64.42", "v-46.67", "h63.33", "v-25.33" ] ],
+    [ "ring1:GND", "pico:GND.5", "black", [ "v18.39", "h-120.96", "v-60.66" ] ],
+    [ "ring1:VCC", "pico:VBUS", "red", [ "v44.72", "h-167.28", "v-256.99" ] ],
+    [ "ring1:DIN", "pico:GP16", "green", [ "v21.58", "h-162.51", "v-51.08" ] ],
+    [ "btn2:2.l", "pico:GND.6", "green", [ "v-4.18", "h-56.35" ] ],
+    [ "btn2:1.l", "pico:GP22", "green", [ "h0" ] ],
+    [ "pir1:VCC", "pico:VBUS", "red", [ "v0" ] ],
+    [ "pir1:GND", "pico:GND.8", "black", [ "v21.97", "h-1.84", "v-6.38" ] ],
+    [ "pir1:OUT", "pico:GP28", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
